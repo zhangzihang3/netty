@@ -10,13 +10,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class GroupChatClient {
+public class GroupChatClient1 {
     private SocketChannel socketChannel;
     private Selector selector;
     private String userName;
     private static final int port = 2222;
 
-    public GroupChatClient() {
+    public GroupChatClient1() {
         try {
             selector = Selector.open();
             socketChannel = socketChannel.open(new InetSocketAddress("127.0.0.1", port));
@@ -68,7 +68,7 @@ public class GroupChatClient {
     public static void main(String[] args) throws Exception {
 
         //启动我们客户端
-        GroupChatClient chatClient = new GroupChatClient();
+        GroupChatClient1 chatClient = new GroupChatClient1();
 
         //启动一个线程, 每个3秒，读取从服务器发送数据
         new Thread() {

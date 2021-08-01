@@ -18,7 +18,7 @@ public class demo3 {
 
         ByteBuffer byteBuffer = ByteBuffer.allocate(100000000);
         while (true) {
-            //将byteBuffer标识位清除
+            //将byteBuffer标识位清除，如果没有这一步将会一直拷贝文件中的数据
             byteBuffer.clear();
             //将targetChannel中的数据读取出来，写入byteBuffer
             int read = targetChannel.read(byteBuffer);

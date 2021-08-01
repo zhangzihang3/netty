@@ -11,6 +11,7 @@ public class GroupChatServer {
     private Selector selector;
     private ServerSocketChannel serverSocketChannel;
     private static final int port = 2222;
+
     public GroupChatServer() {
         try {
             selector = Selector.open();
@@ -46,7 +47,7 @@ public class GroupChatServer {
                         keys.remove();
                     }
                 } else {
-                   // System.out.println("等待");
+                    // System.out.println("等待");
                 }
             }
         } catch (IOException e) {
@@ -86,6 +87,9 @@ public class GroupChatServer {
     private void sendInfoToOtherClient(String msg, SocketChannel self) {
         try {
             System.out.println("服务器转发消息中。。。。。");
+            /**
+             * 注意这里是调用selector.keys()
+             */
             for (SelectionKey key : selector.keys()) {
                 Channel otherClient = key.channel();
                 //排除转发消息给自己这种情况
