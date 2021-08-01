@@ -86,7 +86,7 @@ public class GroupChatServer {
     private void sendInfoToOtherClient(String msg, SocketChannel self) {
         try {
             System.out.println("服务器转发消息中。。。。。");
-            for (SelectionKey key : selector.selectedKeys()) {
+            for (SelectionKey key : selector.keys()) {
                 Channel otherClient = key.channel();
                 //排除转发消息给自己这种情况
                 if (otherClient instanceof SocketChannel && otherClient != self) {
